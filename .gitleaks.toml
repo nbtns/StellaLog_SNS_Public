@@ -1,0 +1,10 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Ignore local generated environments and temporary test data"
+paths = [
+  '''(^|[\\/])\.venv([\\/]|$)''',
+  '''(^|[\\/])\.runtime-test([\\/]|$)''',
+  '''(^|[\\/])\.git\.codex-(backup|original)([\\/]|$)''',
+]
