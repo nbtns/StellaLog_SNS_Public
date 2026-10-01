@@ -32,4 +32,4 @@ jobs:
           -e GIT_CONFIG_KEY_0=safe.directory
           -e GIT_CONFIG_VALUE_0=/repo
           zricethezav/gitleaks:v8.24.3
-          detect --source=/repo --redact --log-opts="--all"
+          detect --source=/repo --redact --verbose --log-opts="--all"
