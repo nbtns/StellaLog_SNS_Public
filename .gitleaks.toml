@@ -1,10 +1,24 @@
 [extend]
 useDefault = true
 
-[[allowlists]]
+[allowlist]
 description = "Ignore local generated environments and temporary test data"
 paths = [
   '''(^|[\\/])\.venv([\\/]|$)''',
   '''(^|[\\/])\.runtime-test([\\/]|$)''',
   '''(^|[\\/])\.git\.codex-(backup|original)([\\/]|$)''',
+]
+
+[[rules]]
+id = "generic-api-key"
+
+[[rules.allowlists]]
+description = "The reviewed ranking article ID is a content path, not a credential"
+condition = "AND"
+regexTarget = "secret"
+regexes = ['''^ranking/unisex/infj/cancer$''']
+paths = [
+  '''^src/stellalog_sns/ranking_pilot\.py$''',
+  '''^tests/test_ranking_(pilot|posts)\.py$''',
+  '''^tests/test_generator\.py$''',
 ]
